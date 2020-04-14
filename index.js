@@ -7,15 +7,13 @@ let score = {
 let left;
 let chatStory = [];
 
-var ipAddr = req.headers["x-forwarded-for"];
-  if (ipAddr){
-    var list = ipAddr.split(",");
-    ipAddr = list[list.length-1];
-  } else {
-    ipAddr = req.connection.remoteAddress;
-  }
+var os = require( 'os' );
+
+var networkInterfaces = os.networkInterfaces( );
+
+console.log(networkInterfaces);
   
-  console.log(`Server runing on ${ipAddr}:3253`);
+  console.log(`Server runing on :3253`);
 
 io.sockets.on('connection', (socket) => {
 
