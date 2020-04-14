@@ -1,4 +1,6 @@
 let io = require('socket.io').listen(3253);
+io.set('origins', '*:*');
+
 let score = {
     score1: 0,
     score2: 0,
