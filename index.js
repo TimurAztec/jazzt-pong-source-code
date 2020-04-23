@@ -15,7 +15,12 @@ var networkInterfaces = os.networkInterfaces( );
 
 console.log(networkInterfaces);
   
-  console.log(`Server runing on :3253`);
+console.log(`Server runing on :3253`);
+
+const http = require('http');
+const server = http.createServer((request, response) => {
+    console.log(request);
+});
 
 io.sockets.on('connection', (socket) => {
 
