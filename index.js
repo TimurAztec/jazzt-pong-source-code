@@ -1,5 +1,10 @@
 const PORT = process.env.PORT || 80;
-let io = require('socket.io').listen(3253);
+const http = require('http');
+const server = http.createServer((request, response) => {
+    response.write('<h1>Hello world</h1>');
+    response.end();
+}).listen(PORT);
+let io = require('socket.io').listen(server);
 io.set('origins', '*:*');
 
 let score = {
@@ -17,12 +22,6 @@ var networkInterfaces = os.networkInterfaces( );
 console.log(networkInterfaces);
   
 console.log(`Server runing on :3253`);
-
-const http = require('http');
-const server = http.createServer((request, response) => {
-    response.write('<h1>Hello world</h1>');
-    response.end();
-}).listen(PORT);
 
 io.sockets.on('connection', (socket) => {
 
