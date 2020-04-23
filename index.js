@@ -19,6 +19,8 @@ console.log(networkInterfaces);
 
 io.sockets.on('connection', (socket) => {
 
+    let playerNumber;
+
     console.log(`${socket.handshake.address.address}:${socket.handshake.address.port} connected!`);
     if (io.engine.clientsCount > 2) {
         socket.disconnect();
@@ -27,6 +29,7 @@ io.sockets.on('connection', (socket) => {
     }
 
     if (io.engine.clientsCount == 1) {
+        playerNumber = 1;
         if (Math.round(Math.random() * 1) == 0) {
             left = true
             socket.emit('start_position', 'left');
@@ -35,6 +38,7 @@ io.sockets.on('connection', (socket) => {
             socket.emit('start_position', 'right');
         }
     } else {
+        playerNumber = 2;
         if (left) {
             socket.emit('start_position', 'right');
         } else {
@@ -72,7 +76,7 @@ io.sockets.on('connection', (socket) => {
             } else if (data == 2) {
                 score.score2 += 1;
             }
-            score.timeOut = true; setTimeout(() => { score.timeOut = false; }, 500);
+            score.timeOut = true; setTimeout(() => { score.timeOut = false; }, 350);
         }
         if (score.score1 >= 10) {
             io.sockets.emit('end_game', 'Player 1 won the game!'); clearScore();
