@@ -142,7 +142,7 @@ function createTheBall() {
         height: 15,
         color: '#FFFFFF',
         speed: 1,
-        speedAddition: 1,
+        speedUp: 1,
         gravity: 1
     }
 }
@@ -182,18 +182,18 @@ function ballCollision() {
     if (((theBall.x + theBall.speed <= player1.x + player1.width) && (theBall.y + theBall.gravity > player1.y) && (theBall.y + theBall.gravity <= player1.y + player1.height))
         || ((theBall.x + theBall.width + theBall.speed >= player2.x) && (theBall.y + theBall.gravity > player2.y) && (theBall.y + theBall.gravity <= player2.y + player2.height))) {
         theBall.speed = theBall.speed * -1;
-        theBall.speed = theBall.speed * theBall.speedAddition;
-        theBall.speedAddition = theBall.speedAddition + 0.10;
+        theBall.speed = theBall.speed * theBall.speedUp;
+        theBall.speedUp = theBall.speedUp + 0.10;
     } else if (theBall.x + theBall.speed < player1.x) {
         score.score2 ++;
         // theBall.speed = theBall.speed * -1;
-        theBall.speed = 1;
+        theBall.speed = 1; theBall.speedUp = 1;
         theBall.x = 100 + theBall.speed;
         theBall.y += theBall.gravity;
     } else if (theBall.x + theBall.speed > player2.x + player2.width) {
         score.score1 ++;
         // theBall.speed = theBall.speed * -1;
-        theBall.speed = -1;
+        theBall.speed = -1; theBall.speedUp = 1;
         theBall.x = 500 + theBall.speed;
         theBall.y += theBall.gravity;
     } else {
