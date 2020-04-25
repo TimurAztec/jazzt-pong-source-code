@@ -31,6 +31,7 @@ io.sockets.on('connection', (socket) => {
 
     console.log(`${socket.handshake.address.address}:${socket.handshake.address.port} connected!`);
     if (io.engine.clientsCount > 2) {
+        socket.emit('full_server');
         socket.disconnect();
     } else {
         socket.emit('connected');
