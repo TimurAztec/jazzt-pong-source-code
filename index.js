@@ -183,7 +183,7 @@ function ballCollision() {
         || ((theBall.x + theBall.width + theBall.speed >= player2.x) && (theBall.y + theBall.gravity > player2.y) && (theBall.y + theBall.gravity <= player2.y + player2.height))) {
         theBall.speed = theBall.speed * -1;
         theBall.speed = theBall.speed * theBall.speedUp;
-        theBall.speedUp = theBall.speedUp + 0.10;
+        if (theBall.speedUp < 3) { theBall.speedUp = theBall.speedUp + 0.10; }
     } else if (theBall.x + theBall.speed < player1.x) {
         score.score2 ++;
         // theBall.speed = theBall.speed * -1;
