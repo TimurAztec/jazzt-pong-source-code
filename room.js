@@ -18,7 +18,7 @@ module.exports = class Room {
     }
 
     constructor(io, room, roomId) {
-        console.log(`Room ${room.name} has been created! Players: ${Object.keys(room.sockets)[0]} and ${Object.keys(room.sockets)[1]}`);
+        console.log(`Room ${roomId} has been created! Players: ${Object.keys(room.sockets)[0]} and ${Object.keys(room.sockets)[1]}`);
         this.io = io;
         this.room = room;
         this.roomId = roomId;
@@ -64,7 +64,7 @@ module.exports = class Room {
             width: 15,
             height: 15,
             color: '#FFFFFF',
-            speed: 1,
+            speed: 2,
             speedUp: 1,
             gravity: 1
         }
@@ -90,34 +90,61 @@ module.exports = class Room {
     }
 
     ballBounce() {
-        if (((this.theBall.y + this.theBall.gravity) <= 0) || ((this.theBall.y + this.theBall.gravity + this.theBall.height) >= this.canvas.height)) {
+        if (this.theBall.speed > 20) { this.theBall.speed = 20 } else if (this.theBall.speed < -20) { this.theBall.speed = -20 }
+        if (((this.theBall.y + this.theBall.gravity + this.theBall.height) >= this.canvas.height)) {
             this.theBall.gravity = this.theBall.gravity * -1;
             this.theBall.y += this.theBall.gravity;
             this.theBall.x += this.theBall.speed;
-        } else {
+        } else if (((this.theBall.y + this.theBall.gravity) <= 0)) {
+            this.theBall.gravity = this.theBall.gravity * -1;
+            this.theBall.y += this.theBall.gravity;
             this.theBall.x += this.theBall.speed;
-            this.theBall.y += this.theBall.gravity
         }
         this.ballCollision();
     }
 
     ballCollision() {
-        if (((this.theBall.x + this.theBall.speed <= this.player1.x + this.player1.width) && (this.theBall.y + this.theBall.gravity > this.player1.y) && (this.theBall.y + this.theBall.gravity <= this.player1.y + this.player1.height))
-            || ((this.theBall.x + this.theBall.width + this.theBall.speed >= this.player2.x) && (this.theBall.y + this.theBall.gravity > this.player2.y) && (this.theBall.y + this.theBall.gravity <= this.player2.y + this.player2.height))) {
+        if (((this.theBall.x + this.theBall.speed <= this.player1.x + this.player1.width) && (this.theBall.x > this.player1.x + this.player1.width) && (this.theBall.y + this.theBall.height > this.player1.y) && (this.theBall.y < this.player1.y + this.player1.height))) {
+            this.theBall.speed = this.theBall.speed - 0.5;
             this.theBall.speed = this.theBall.speed * -1;
-            this.theBall.speed = this.theBall.speed * this.theBall.speedUp;
-            if (this.theBall.speedUp < 3) { this.theBall.speedUp = this.theBall.speedUp + 0.10; }
-        } else if (this.theBall.x + this.theBall.speed < this.player1.x) {
-            this.score.score2 ++;
-            // this.theBall.speed = this.theBall.speed * -1;
-            this.theBall.speed = 1; this.theBall.speedUp = 1;
-            this.theBall.x = 100 + this.theBall.speed;
+            if (this.theBall.gravity > 0 ) { this.theBall.gravity = (Math.random() * 3) + 0.5; } else { this.theBall.gravity = ((Math.random() * 3) + 0.5) * -1; }
+        }
+        else if (((this.theBall.y + this.theBall.height) > this.player1.y) && (this.theBall.y < this.player1.y + this.player1.height) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) < this.player1.x + this.player1.width) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) > this.player1.x)) {
+            this.theBall.gravity = this.theBall.gravity * -1;
             this.theBall.y += this.theBall.gravity;
-        } else if (this.theBall.x + this.theBall.speed > this.player2.x + this.player2.width) {
+            this.theBall.x += this.theBall.speed;
+        }
+        else if ((this.theBall.y < this.player1.y + this.player1.height) && (this.theBall.y > this.player1.y) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) < this.player1.x + this.player1.width) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) > this.player1.x)) {
+            this.theBall.gravity = this.theBall.gravity * -1;
+            this.theBall.y += this.theBall.gravity;
+            this.theBall.x += this.theBall.speed;
+        }
+        else if (((this.theBall.x + this.theBall.width + this.theBall.speed/2 >= this.player2.x) && (this.theBall.x < this.player2.x) && (this.theBall.y + this.theBall.height > this.player2.y) && (this.theBall.y < this.player2.y + this.player2.height))) {
+            this.theBall.speed = this.theBall.speed + 0.5;
+            this.theBall.speed = this.theBall.speed * -1;
+            if (this.theBall.gravity > 0 ) { this.theBall.gravity = (Math.random() * 3) + 0.5; } else { this.theBall.gravity = ((Math.random() * 3) + 0.5) * -1; }
+        }
+        else if (((this.theBall.y + this.theBall.height) > this.player2.y) && (this.theBall.y < this.player2.y + this.player2.height) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) < this.player2.x + this.player2.width) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) > this.player2.x)) {
+            this.theBall.gravity = this.theBall.gravity * -1;
+            this.theBall.y += this.theBall.gravity;
+            this.theBall.x += this.theBall.speed;
+        }
+        else if ((this.theBall.y < this.player2.y + this.player2.height) && (this.theBall.y > this.player2.y) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) < this.player2.x + this.player2.width) && (((this.theBall.x + this.theBall.width/2) || (this.theBall.x)) > this.player2.x)) {
+            this.theBall.gravity = this.theBall.gravity * -1;
+            this.theBall.y += this.theBall.gravity;
+            this.theBall.x += this.theBall.speed;
+        }
+        else if (this.theBall.x + this.theBall.width < 0) {
+            this.score.score2 ++;
+            // this.this.theBall.speed = this.this.theBall.speed * -1;
+            this.theBall.speed = 2;
+            this.theBall.x = 50 + this.theBall.speed;
+            this.theBall.y += this.theBall.gravity;
+        } else if (this.theBall.x > this.canvas.width) {
             this.score.score1 ++;
-            // this.theBall.speed = this.theBall.speed * -1;
-            this.theBall.speed = -1; this.theBall.speedUp = 1;
-            this.theBall.x = 500 + this.theBall.speed;
+            // this.this.theBall.speed = this.this.theBall.speed * -1;
+            this.theBall.speed = -2;
+            this.theBall.x = 550 + this.theBall.speed;
             this.theBall.y += this.theBall.gravity;
         } else {
             this.theBall.x += this.theBall.speed;

@@ -9,7 +9,6 @@ const EventEmitter = new EventEmitterCreator();
 let io = require('socket.io').listen(server); io.set('origins', '*:*');
 
 //##### INNER SERVER LOGIC #####
-const RoomsKeys = new Array();
 const Room = require('./room');
 setInterval(() => {
     getRoomsIds().forEach((id) => {
@@ -38,7 +37,6 @@ io.sockets.on('connection', (socket) => {
             roomId += 1;
             tryToJoin();
         } else {
-            RoomsKeys.push(roomId.toString());
             console.log(`${socket.request.connection.remoteAddress} connected as ${socket.id} to room number ${roomId}`);
             socket.emit('connected');
         }

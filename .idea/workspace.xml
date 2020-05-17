@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="" />
+    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="hz">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/room.js" beforeDir="false" afterPath="$PROJECT_DIR$/room.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,8 +74,21 @@
       <workItem from="1588459506102" duration="603000" />
       <workItem from="1588597558994" duration="1105000" />
       <workItem from="1589120404251" duration="219000" />
-      <workItem from="1589120659197" duration="13685000" />
+      <workItem from="1589120659197" duration="14744000" />
+      <workItem from="1589372369323" duration="3364000" />
+      <workItem from="1589453876935" duration="2093000" />
+      <workItem from="1589634860945" duration="99000" />
+      <workItem from="1589715506291" duration="673000" />
+      <workItem from="1589732456671" duration="1276000" />
     </task>
+    <task id="LOCAL-00001" summary="hz">
+      <created>1589135209149</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1589135209149</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,11 +104,28 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="hz" />
+    <option name="LAST_COMMIT_MESSAGE" value="hz" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="607" y="268" key="MultipleFileMergeDialog" timestamp="1589135237523">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589135253558">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135253558" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1586887282562" />
+    <state x="469" y="201" key="git4idea.merge.GitPullDialog" timestamp="1589135216045">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="469" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135216045" />
   </component>
 </project>
