@@ -19,7 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="FIX" />
+    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Trying to add client on new host">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,7 +80,7 @@
       <workItem from="1589732456671" duration="1632000" />
       <workItem from="1589971560910" duration="2775000" />
       <workItem from="1589998313864" duration="1520000" />
-      <workItem from="1590002783461" duration="509000" />
+      <workItem from="1590002783461" duration="1424000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -108,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590002821322</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Trying to add client on new host">
+      <created>1590003828367</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1590003828367</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,17 +139,18 @@
     <MESSAGE value="hz" />
     <MESSAGE value="Changed ball colision on singleplayer version" />
     <MESSAGE value="FIX" />
-    <option name="LAST_COMMIT_MESSAGE" value="FIX" />
+    <MESSAGE value="Trying to add client on new host" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trying to add client on new host" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="268" key="MultipleFileMergeDialog" timestamp="1589135237523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590002834859">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590003836629">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590002834859" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590003836629" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

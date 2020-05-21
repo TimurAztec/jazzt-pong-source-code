@@ -3,7 +3,7 @@ const http = require('http');
 const fs = require('fs');
 const server = http.createServer((request, response) => {
     if (request.url == '/') {
-        fs.readFile('client/index.html', (err, data) => {
+        fs.readFile('./index.html', (err, data) => {
             response.write(data);
             response.end();
         });
@@ -14,7 +14,7 @@ const EventEmitter = new EventEmitterCreator();
 let io = require('socket.io').listen(server); io.set('origins', '*:*');
 
 //##### INNER SERVER LOGIC #####
-const Room = require('./room');
+const Room = require('./server-room');
 setInterval(() => {
     getRoomsIds().forEach((id) => {
         let room = getRoom(id);
