@@ -21,8 +21,54 @@
   <component name="ChangeListManager">
     <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Trying to add client on new host">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connections.a24b4d1a.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dreamer_in_glass.09b695f5.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Magnum_Dance.91d94a41.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Misty_Knight.5bb18fb7.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mystery_rose.f996caf0.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Piano_black.7f665653.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PixelTimes.ab33fe06.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/beep1.0cbafdb2.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/beep2.9dfed22d.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/favicon.8d52daa0.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hit.812205f5.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hit2.064a4fd7.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-check.4b042123.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-check.4b042123.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pong-game-single.84b55364.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pong-game-single.84b55364.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pong-game.63e1be14.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pong-game.63e1be14.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.8bb69be4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.8bb69be4.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-game.5411d877.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-game.5411d877.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-main-menu.ff9c5aa8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-main-menu.ff9c5aa8.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-setting.dc50f0db.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screen-setting.dc50f0db.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens-changer.f418709f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens-changer.f418709f.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.f3f5830f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.f3f5830f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.eb8d2108.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/start.eb8d2108.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/startbeep.764c5fd8.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.bc95f2de.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.bc95f2de.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(1).095e0ae4.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(2).7e73b05a.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(3).20c01a2c.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(4).a81ec7da.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(5).884cfb0e.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(6).0d62c0d9.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(7).3f3bd4dd.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/videoplayback(8).1f50ef21.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +131,7 @@
       <workItem from="1590002783461" duration="1424000" />
       <workItem from="1590060445893" duration="1141000" />
       <workItem from="1590061729189" duration="537000" />
-      <workItem from="1590062293945" duration="2522000" />
+      <workItem from="1590062293945" duration="3819000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -136,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590060737688</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Trying to add client on new host">
+      <created>1590065291028</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1590065291029</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,10 +219,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590060744954">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590065299290">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590060744954" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590065299290" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
