@@ -1,3 +1,6 @@
+const MongoClient = require("mongodb").MongoClient; const {ObjectId} = require("mongodb");
+const mongoUrl = 'mongodb://heroku_wqpvrkdq:2158u4v61nvofoho05bapiv1k3@ds029798.mlab.com:29798/heroku_wqpvrkdq';
+
 module.exports = class Room {
 
     room;
@@ -171,13 +174,35 @@ module.exports = class Room {
             } else {
                 this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
             }
+            if (this.player1.id) { this.addWinToPlayerScore(this.player1.id); }
         } else if (this.score.score2 >= 10) {
-            if (this.player1.name) {
+            if (this.player2.name) {
                 this.io.in(this.roomId).emit('end_game', `${this.player2.name} won the game!`);
             } else {
                 this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
             }
+            if (this.player2.id) { this.addWinToPlayerScore(this.player2.id); }
         }
+    }
+
+    addWinToPlayerScore(id) {
+        const mongoClient = new MongoClient(mongoUrl, { useNewUrlParser: true });
+        mongoClient.connect((err, client) => { if (err) throw err;
+            const collection = client.db('heroku_wqpvrkdq').collection('users');
+            collection.findOne({_id: ObjectId(id)}, (err, res) => { if (err) throw err;
+                if (res) {
+                    if (res.score) {
+                        collection.updateOne({_id: ObjectId(id)}, {$set:{score: res.score+=1}}, (err, res) => {
+                            if (err) throw err;
+                        });
+                    } else {
+                        collection.updateOne({_id: ObjectId(id)}, {$set:{score: 1}}, (err, res) => {
+                            if (err) throw err;
+                        });
+                    }
+                }
+            });
+        });
     }
 
     socketsEvents() {
