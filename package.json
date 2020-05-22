@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "events": "^3.1.0",
+    "mongodb": "^3.5.7",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {},

@@ -1,13 +1,60 @@
 const PORT = process.env.PORT || 80;
 const http = require('http');
 const fs = require('fs');
+const MongoClient = require("mongodb").MongoClient; const {ObjectId} = require("mongodb");
+const mongoUrl = 'mongodb://heroku_wqpvrkdq:2158u4v61nvofoho05bapiv1k3@ds029798.mlab.com:29798/heroku_wqpvrkdq';
 const server = http.createServer((request, response) => {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Headers', 'origin, content-type, accept');
     if (request.url === '/') {
         fs.readFile('client/index.html', (err, data) => {
             response.write(data);
             response.end();
         });
-    } else {
+    }
+    else if (request.url === '/changeName') {
+        let dataJSONString = '';
+        request.on('data', (data) => {
+            dataJSONString += data;
+        });
+        request.on('end', () => {
+            const data = JSON.parse(dataJSONString);
+            const mongoClient = new MongoClient(mongoUrl, { useNewUrlParser: true });
+            mongoClient.connect((err, client) => { if (err) throw err;
+                const db = client.db('heroku_wqpvrkdq');
+                const collection = db.collection('users');
+                collection.findOne(data, (err, res) => { if (err) throw err;
+                    if (data._id) {
+                        console.log(data._id);
+                        collection.findOne({_id: ObjectId(data._id)}, (err, res) => { if (err) throw err;
+                            if (res) {
+                                collection.findOne({name: data.name}, (err, res) => { if (err) throw err;
+                                    if (!res || res._id == ObjectId(data._id)) {
+                                        collection.updateOne({_id: ObjectId(data._id)}, {$set:{name:data.name}}, (err, res) => { if (err) throw err;
+                                            response.write(JSON.stringify({name: data.name})); response.end();
+                                        });
+                                    } else { response.write(JSON.stringify({err: 'Name is already taken!'})); response.end(); }
+                                });
+                            } else {
+                                response.write(JSON.stringify({err: 'No user with such id!'})); response.end();
+                            }
+                        });
+                    } else {
+                        collection.findOne(data, (err, res) => { if (err) throw err;
+                            if (res) {
+                                response.write(JSON.stringify({err: 'Name is already taken!'})); response.end();
+                            } else {
+                                collection.insertOne({name: data.name}, (err, res) => { if (err) throw err;
+                                    response.write(JSON.stringify(res.ops[0])); response.end();
+                                });
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    }
+    else {
         fs.readFile(`${__dirname}/client${request.url}`, function (err,data) {
             if (err) {
                 response.writeHead(404);
