@@ -175,35 +175,39 @@ module.exports = class Room {
     scoreCheck() {
         if (!this.end) {
             if (this.score.score1 >= 10) {
+                let dif = this.score.score1 - this.score.score2;
                 if (this.player1.name) {
                     this.io.in(this.roomId).emit('end_game', `${this.player1.name} won the game!`);
                 } else {
                     this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
                 }
-                if (this.player1.id) { this.addWinToPlayerScore(this.player1.id); }
+                if (this.player1.id) { this.addPlayerScore(this.player1.id, dif); }
+                if (this.player2.id) { this.addPlayerScore(this.player2.id, -dif); }
                 this.end = true;
             } else if (this.score.score2 >= 10) {
+                let dif = this.score.score2 - this.score.score1;
                 if (this.player2.name) {
                     this.io.in(this.roomId).emit('end_game', `${this.player2.name} won the game!`);
                 } else {
                     this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
                 }
-                if (this.player2.id) { this.addWinToPlayerScore(this.player2.id); }
+                if (this.player1.id) { this.addPlayerScore(this.player1.id, -dif); }
+                if (this.player2.id) { this.addPlayerScore(this.player2.id, dif); }
                 this.end = true;
             }
         }
     }
 
-    addWinToPlayerScore(id) {
+    addPlayerScore(id, score) {
         let idFix = id.substr(1,24);
         const mongoClient = new MongoClient(mongoUrl, { useNewUrlParser: true });
         mongoClient.connect((err, client) => { if (err) throw err;
             const collection = client.db(dbName).collection('users');
             collection.findOne({_id: ObjectId(idFix)}).then(res => {
                if (res.score) {
-                   collection.updateOne({_id: ObjectId(idFix)}, {$inc: {score: 1}});
+                   collection.updateOne({_id: ObjectId(idFix)}, {$inc: {score: score}});
                } else {
-                   collection.updateOne({_id: ObjectId(idFix)}, {$set: {score: 1}});
+                   collection.updateOne({_id: ObjectId(idFix)}, {$set: {score: score}});
                }
             });
         });
