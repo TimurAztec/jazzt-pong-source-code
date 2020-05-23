@@ -1,5 +1,8 @@
 const MongoClient = require("mongodb").MongoClient; const {ObjectId} = require("mongodb");
 const mongoUrl = 'mongodb://heroku_wqpvrkdq:2158u4v61nvofoho05bapiv1k3@ds029798.mlab.com:29798/heroku_wqpvrkdq';
+const dbName = 'heroku_wqpvrkdq';
+// const dbName = 'pong-users';
+// const mongoUrl = 'mongodb://localhost:27017/';
 
 module.exports = class Room {
 
@@ -12,7 +15,7 @@ module.exports = class Room {
         score2: 0,
         timeOut: false
     }
-    pause;
+    pause; end;
     chatStory = [];
     theBall;
     player1; player2;
@@ -143,12 +146,14 @@ module.exports = class Room {
         }
         else if (this.theBall.x + this.theBall.width < 0) {
             this.score.score2 ++;
+            this.score.score2 += 10;
             // this.this.theBall.speed = this.this.theBall.speed * -1;
             this.theBall.speed = 2;
             this.theBall.x = 50 + this.theBall.speed;
             this.theBall.y += this.theBall.gravity;
         } else if (this.theBall.x > this.canvas.width) {
             this.score.score1 ++;
+            this.score.score1 += 10;
             // this.this.theBall.speed = this.this.theBall.speed * -1;
             this.theBall.speed = -2;
             this.theBall.x = 550 + this.theBall.speed;
@@ -168,39 +173,38 @@ module.exports = class Room {
     }
 
     scoreCheck() {
-        if (this.score.score1 >= 10) {
-            if (this.player1.name) {
-                this.io.in(this.roomId).emit('end_game', `${this.player1.name} won the game!`);
-            } else {
-                this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
+        if (!this.end) {
+            if (this.score.score1 >= 10) {
+                if (this.player1.name) {
+                    this.io.in(this.roomId).emit('end_game', `${this.player1.name} won the game!`);
+                } else {
+                    this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
+                }
+                if (this.player1.id) { this.addWinToPlayerScore(this.player1.id); }
+                this.end = true;
+            } else if (this.score.score2 >= 10) {
+                if (this.player2.name) {
+                    this.io.in(this.roomId).emit('end_game', `${this.player2.name} won the game!`);
+                } else {
+                    this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
+                }
+                if (this.player2.id) { this.addWinToPlayerScore(this.player2.id); }
+                this.end = true;
             }
-            if (this.player1.id) { this.addWinToPlayerScore(this.player1.id); }
-        } else if (this.score.score2 >= 10) {
-            if (this.player2.name) {
-                this.io.in(this.roomId).emit('end_game', `${this.player2.name} won the game!`);
-            } else {
-                this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
-            }
-            if (this.player2.id) { this.addWinToPlayerScore(this.player2.id); }
         }
     }
 
     addWinToPlayerScore(id) {
+        let idFix = id.substr(1,24);
         const mongoClient = new MongoClient(mongoUrl, { useNewUrlParser: true });
         mongoClient.connect((err, client) => { if (err) throw err;
-            const collection = client.db('heroku_wqpvrkdq').collection('users');
-            collection.findOne({_id: ObjectId(id)}, (err, res) => { if (err) throw err;
-                if (res) {
-                    if (res.score) {
-                        collection.updateOne({_id: ObjectId(id)}, {$set:{score: res.score+=1}}, (err, res) => {
-                            if (err) throw err;
-                        });
-                    } else {
-                        collection.updateOne({_id: ObjectId(id)}, {$set:{score: 1}}, (err, res) => {
-                            if (err) throw err;
-                        });
-                    }
-                }
+            const collection = client.db(dbName).collection('users');
+            collection.findOne({_id: ObjectId(idFix)}).then(res => {
+               if (res.score) {
+                   collection.updateOne({_id: ObjectId(idFix)}, {$inc: {score: 1}});
+               } else {
+                   collection.updateOne({_id: ObjectId(idFix)}, {$set: {score: 1}});
+               }
             });
         });
     }
