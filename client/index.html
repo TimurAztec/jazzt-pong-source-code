@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <title>Jazzt Pong</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.26242483.ico">
+    <link rel="stylesheet" href="/style.97fcb138.css">
+    <link rel="stylesheet" href="/screen-main-menu.547c2755.css">
+    <link rel="stylesheet" href="/screen-game.7bb74261.css">
+    <link rel="stylesheet" href="/screen-setting.fdbcfc66.css">
+    <link rel="stylesheet" href="/screen-score.06c48e2b.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+<script src="/style.97fcb138.js"></script><script src="/screen-main-menu.547c2755.js"></script><script src="/screen-game.7bb74261.js"></script><script src="/screen-setting.fdbcfc66.js"></script><script src="/screen-score.06c48e2b.js"></script></head>
+<body>
+
+<div id="screen-menu">
+    <h1 class="animate__animated animate__backInUp" id="title">JAZZT PONG</h1>
+    <label class="animate__animated animate__backInDown" id="splash"></label>
+    <button id="play-single" class="animate__animated animate__bounceInLeft">Play singleplayer</button>
+    <button id="play-online" class="animate__animated animate__bounceInRight">Play online</button>
+    <button id="scores-table" class="animate__animated animate__bounceInRight">Scores table</button>
+<!--    <button id="play-online-private" class="animate__animated animate__bounceInLeft">Play private game</button>-->
+<!--    <button id="watch-game" class="animate__animated animate__bounceInRight">Watch private game</button>-->
+<!--    <button id="play-lan"  style="text-decoration: line-through" class="animate__animated animate__bounceInLeft">Play LAN multiplayer</button>-->
+    <button id="settings" class="animate__animated animate__bounceInLeft">Settings</button>
+    <a id="readme" class="animate__animated animate__bounceInRight" href="/readme.html" target="_blank">Read Me</a>
+</div>
+
+<div id="screen-setting">
+    <h2 class="animate__animated animate__backInDown">Settings</h2>
+    <div class="animate__animated animate__bounceInDown"><span>Name</span><input type="text" maxlength="18" id="name-input"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Music volume</span><input type="range" min="0" max="10" value="10" id="music-volume"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Sound volume</span><input type="range" min="0" max="10" value="10" id="sound-volume"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Controls: </span></div>
+    <div class="animate__animated animate__bounceInDown" id="controls">
+        <span><input class="0 controls" name="controls" type="radio"><label>Keyboard</label></span>
+        <span><input class="1 controls" name="controls" type="radio"><label>Mouse</label></span>
+        <span><input class="2 controls" name="controls" type="radio"><label>Rotation</label></span>
+    </div>
+    <div id="settings-error"><span></span></div>
+    <button class="to-main-menu">To Main Menu</button>
+</div>
+
+<div id="screen-game">
+    <canvas id="canvas" style="background-color:black" class="animate__animated animate__bounceInDown">
+        Your browser doesn't support Canvas, try another or update
+    </canvas>
+    <div id="chat" class="animate__animated animate__bounceInUp">
+
+    </div>
+    <div id="chatInputBox" class="animate__animated animate__bounceInUp">
+        <input id="chatInput" type="text">
+        <button id="chatSendButton">Send</button>
+    </div>
+    <button class="to-main-menu">To Main Menu</button>
+    <label id="ping"></label>
+    <div class="animate__animated animate__bounceInUp" id="game-buttons">
+        <button id="game-fullscreen-button">Fullscreen mode</button>
+        <button id="pause-button">Pause</button>
+    </div>
+</div>
+
+<div id="screen-score">
+    <h2 class="animate__animated animate__backInDown">Best players</h2>
+    <div id="score-table" class="animate__animated animate__bounceInDown">
+
+    </div>
+    <div id="own-score" class="animate__animated animate__bounceInDown">
+
+    </div>
+    <button class="to-main-menu">To Main Menu</button>
+</div>
+
+<!-- Tech part -->
+<div id="devs">
+    <span>Game by TimurAztec | <a href="https://github.com/TimurAztec">GitHub</a></span>
+    <span>Game testing Dan Seroff and <a href="https://www.instagram.com/overwolf94/">Dima Overwolf</a></span>
+</div>
+
+<!-- Tech sounds -->
+<audio src="/beep1.1658a754.ogg" id="audio-beep1" class="sound"></audio>
+<audio src="/beep2.7a80a684.ogg" id="audio-beep2" class="sound"></audio>
+<audio src="/startbeep.6c125fd2.ogg" id="audio-beep3" class="sound"></audio>
+<audio src="/hit.e9d521dc.ogg" id="audio-hit1" class="sound"></audio>
+<audio src="/hit2.67e6d6de.ogg" id="audio-hit2" class="sound"></audio>
+<!-- Menu music -->
+<audio src="/Misty_Knight.742cf9df.mp3" class="music music-menu"></audio>
+<audio src="/Dreamer_in_glass.324663e4.mp3" class="music music-menu"></audio>
+<audio src="/Mystery_rose.b492fccc.mp3" class="music music-menu"></audio>
+<audio src="/Magnum_Dance.025ae71a.mp3" class="music music-menu"></audio>
+<!-- Game music -->
+<audio src="/Piano_black.5f1441a5.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(1).cf386821.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(2).e630f48f.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(3).73187b13.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(4).d1781790.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(5).fc197422.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(6).c1040588.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(7).1c4fb8e0.mp3" class="music music-game"></audio>
+<audio src="/videoplayback(8).d99bf0bf.mp3" class="music music-game"></audio>
+<!-- Scripts-->
+<script src="/mobile-check.0c85dfcf.js"></script>
+<script src="/pong-game-single.383ccdba.js"></script>
+<script src="/pong-game.9bb14e38.js"></script>
+<script src="/screens-changer.487923a7.js"></script>
+<script src="/settings.f30f590c.js"></script>
+<script src="/start.d07fc9b7.js"></script>
+</body>
+

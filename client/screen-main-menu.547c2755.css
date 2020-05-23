@@ -1,0 +1,43 @@
+#screen-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+#screen-menu h1 {
+  color: white;
+  font-family: "connections", sans-serif;
+  font-size: 5em;
+  cursor: default;
+}
+#screen-menu label {
+  color: white;
+  font-family: "retro", sans-serif;
+  cursor: default;
+}
+#screen-menu #readme {
+  margin-top: 12px;
+  color: white;
+  font-family: "retro", sans-serif;
+  cursor: default;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#screen-menu button {
+  width: 256px;
+  height: 48px;
+  color: white;
+  font-family: "retro", sans-serif;
+  border: 4px solid white;
+  background: black;
+  cursor: pointer;
+  margin-top: 12px;
+}
+#screen-menu button:hover {
+  font-size: 1em;
+}
+#screen-menu #readme:hover {
+  font-size: 1.1em;
+}
+
+/*# sourceMappingURL=/screen-main-menu.547c2755.css.map */
