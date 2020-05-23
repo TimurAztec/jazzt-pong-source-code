@@ -137,7 +137,7 @@ function getScores(request, response) {
                 ownScore: undefined
             }
             collection.find().sort({score: -1}).limit(10).forEach((item) => {
-                returnData.topPlayers.push({name: item.name, score: item.score});
+                returnData.topPlayers.push({name: item.name, score: item.score || 0});
             }).then(() => {
                 if (data._id) {
                     collection.findOne({_id: ObjectId(data._id)}).then((res) => {
