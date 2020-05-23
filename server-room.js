@@ -146,14 +146,14 @@ module.exports = class Room {
         }
         else if (this.theBall.x + this.theBall.width < 0) {
             this.score.score2 ++;
-            this.score.score2 += 10;
+            // this.score.score2 += 10;
             // this.this.theBall.speed = this.this.theBall.speed * -1;
             this.theBall.speed = 2;
             this.theBall.x = 50 + this.theBall.speed;
             this.theBall.y += this.theBall.gravity;
         } else if (this.theBall.x > this.canvas.width) {
             this.score.score1 ++;
-            this.score.score1 += 10;
+            // this.score.score1 += 10;
             // this.this.theBall.speed = this.this.theBall.speed * -1;
             this.theBall.speed = -2;
             this.theBall.x = 550 + this.theBall.speed;
