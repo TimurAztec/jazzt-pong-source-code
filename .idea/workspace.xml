@@ -88,7 +88,8 @@
       <workItem from="1590154689135" duration="14057000" />
       <workItem from="1590234180774" duration="12518000" />
       <workItem from="1590263671298" duration="2186000" />
-      <workItem from="1590398079174" duration="599000" />
+      <workItem from="1590398079174" duration="1324000" />
+      <workItem from="1590412332715" duration="617000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -300,7 +301,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590266936695</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Phone addaptation">
+      <created>1590402530438</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1590402530438</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Phone addaptation">
+      <created>1590402646320</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1590402646320</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,17 +344,19 @@
     <MESSAGE value="Adding score" />
     <MESSAGE value="Adding scores" />
     <MESSAGE value="Changing score mechanics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing score mechanics" />
+    <MESSAGE value="Phone addaptation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Phone addaptation" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="268" key="MultipleFileMergeDialog" timestamp="1589135237523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590266950000">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590412350275">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590266950000" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1590412350275" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
