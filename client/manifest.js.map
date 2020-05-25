@@ -1,0 +1,1 @@
+{"version":3,"sources":["manifest.json"],"names":["module","exports","display","orientation"],"mappings":";AAAAA,OAAOC,QAAQ,CAACC,QAAQ,aAAaC,YAAY","file":"manifest.js","sourceRoot":"..","sourcesContent":["module.exports={display:\"fullscreen\",orientation:\"landscape\"};"]}
