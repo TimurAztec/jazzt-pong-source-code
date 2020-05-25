@@ -89,7 +89,7 @@
       <workItem from="1590234180774" duration="12518000" />
       <workItem from="1590263671298" duration="2186000" />
       <workItem from="1590398079174" duration="1324000" />
-      <workItem from="1590412332715" duration="617000" />
+      <workItem from="1590412332715" duration="1257000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -315,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1590402646320</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Phone addaptation">
+      <created>1590413861996</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1590413861997</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
