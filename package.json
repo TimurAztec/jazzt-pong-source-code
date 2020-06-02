@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Server for my pong game",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "events": "^3.1.0",
     "mongodb": "^3.5.7",
