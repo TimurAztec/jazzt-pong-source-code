@@ -19,10 +19,56 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Adding score">
+    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Changing graphics and collisions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-room.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-room.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Connections.a24b4d1a.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Dreamer_in_glass.09b695f5.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Magnum_Dance.91d94a41.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Misty_Knight.5bb18fb7.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Mystery_rose.f996caf0.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/Piano_black.7f665653.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/PixelTimes.ab33fe06.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/ball.f23d190f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/beep1.0cbafdb2.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/beep2.9dfed22d.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/favicon.8d52daa0.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/hit.812205f5.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/hit2.064a4fd7.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/mobile-check.cc8b45a3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/mobile-check.cc8b45a3.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pong-game-single.3094b229.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pong-game-single.3094b229.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pong-game.0a5bf45d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pong-game.0a5bf45d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/readme.8bb69be4.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/readme.8bb69be4.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/readme.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-game.6dbfc2d1.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-game.6dbfc2d1.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-main-menu.ff9c5aa8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-main-menu.ff9c5aa8.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-score.ea6bd562.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-score.ea6bd562.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-setting.0b29df06.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screen-setting.0b29df06.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screens-changer.9cda2a33.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/screens-changer.9cda2a33.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/settings.2cf851d5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/settings.2cf851d5.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/start.5c9011d8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/start.5c9011d8.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/startbeep.764c5fd8.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/style.bc95f2de.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/style.bc95f2de.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(1).095e0ae4.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(2).7e73b05a.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(3).20c01a2c.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(4).a81ec7da.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(5).884cfb0e.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(6).0d62c0d9.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(7).3f3bd4dd.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/videoplayback(8).1f50ef21.mp3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +138,7 @@
       <workItem from="1590263671298" duration="2186000" />
       <workItem from="1590398079174" duration="1324000" />
       <workItem from="1590412332715" duration="2645000" />
-      <workItem from="1591094955502" duration="8827000" />
+      <workItem from="1591094955502" duration="10028000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -346,7 +392,21 @@
       <option name="project" value="LOCAL" />
       <updated>1590416116730</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Changing graphics and collisions">
+      <created>1591110155312</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1591110155312</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Changing graphics and collisions">
+      <created>1591110473244</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1591110473244</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,18 +436,19 @@
     <MESSAGE value="Adding scores" />
     <MESSAGE value="Changing score mechanics" />
     <MESSAGE value="Phone addaptation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Phone addaptation" />
+    <MESSAGE value="Changing graphics and collisions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing graphics and collisions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="268" key="MultipleFileMergeDialog" timestamp="1589135237523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1590416123855">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1591110540945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590266950000" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1590416123855" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1591110540945" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
