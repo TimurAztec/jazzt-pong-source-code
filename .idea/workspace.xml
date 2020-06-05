@@ -19,10 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Changing graphics and collisions">
+    <list default="true" id="c9e45752-fe16-4687-b2e8-2ac55cf24013" name="Default Changelist" comment="Added personal game option">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server-room.js" beforeDir="false" afterPath="$PROJECT_DIR$/server-room.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +91,7 @@
       <workItem from="1590398079174" duration="1324000" />
       <workItem from="1590412332715" duration="2645000" />
       <workItem from="1591094955502" duration="11022000" />
-      <workItem from="1591350995427" duration="2862000" />
+      <workItem from="1591350995427" duration="4467000" />
     </task>
     <task id="LOCAL-00001" summary="hz">
       <created>1589135209149</created>
@@ -375,7 +373,21 @@
       <option name="project" value="LOCAL" />
       <updated>1591112164949</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Added personal game option">
+      <created>1591355760097</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1591355760097</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Added personal game option">
+      <created>1591357208818</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1591357208818</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,18 +418,19 @@
     <MESSAGE value="Changing score mechanics" />
     <MESSAGE value="Phone addaptation" />
     <MESSAGE value="Changing graphics and collisions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changing graphics and collisions" />
+    <MESSAGE value="Added personal game option" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added personal game option" />
   </component>
   <component name="WindowStateProjectService">
     <state x="607" y="268" key="MultipleFileMergeDialog" timestamp="1589135237523">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="607" y="268" key="MultipleFileMergeDialog/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1589135237523" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1591112181856">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1591357229245">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1366.0.1366.728@0.0.1536.824" timestamp="1590266950000" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1591112181856" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1536.824@0.0.1536.824" timestamp="1591357229245" />
     <state x="394" y="213" key="com.intellij.ide.util.TipDialog" timestamp="1586887282562">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
