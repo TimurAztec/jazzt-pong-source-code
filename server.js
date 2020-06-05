@@ -48,7 +48,7 @@ setInterval(() => {
 }, 1000/60);
 
 function getRoomsIds() {
-    return Object.keys(io.sockets.adapter.rooms).filter((item) => { return item.match(/^\d+$/g) });
+    return Object.keys(io.sockets.adapter.rooms).filter((item) => { return item.match(/^\d+$/g) || item.match(/^pers__/g) });
 }
 
 function getRoom(id) {
@@ -57,8 +57,17 @@ function getRoom(id) {
 //##### Io sockets logic #####
 
 io.sockets.on('connection', (socket) => {
-
     let roomId = 0;
+
+    socket.on('connected', seed => {
+        if (seed) {
+            roomId = `pers__${seed}`;
+            tryToJoin();
+        } else {
+            tryToJoin();
+        }
+    });
+
     function tryToJoin() {
         socket.join(roomId.toString());
         if (socket.adapter.rooms[roomId.toString()].length > 2) {
@@ -70,7 +79,6 @@ io.sockets.on('connection', (socket) => {
             socket.emit('connected');
         }
     }
-    tryToJoin();
 
 })
 

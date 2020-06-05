@@ -162,10 +162,10 @@ module.exports = class Room {
                 } else {
                     this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
                 }
-                if (this.gameObjects.active[0].id) {
+                if (this.gameObjects.active[0].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[0].id, dif);
                 }
-                if (this.gameObjects.active[0].id) {
+                if (this.gameObjects.active[0].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[0].id, -dif);
                 }
                 this.end = true;
@@ -176,10 +176,10 @@ module.exports = class Room {
                 } else {
                     this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
                 }
-                if (this.gameObjects.active[1].id) {
+                if (this.gameObjects.active[1].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[1].id, -dif);
                 }
-                if (this.gameObjects.active[1].id) {
+                if (this.gameObjects.active[1].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[1].id, dif);
                 }
                 this.end = true;
