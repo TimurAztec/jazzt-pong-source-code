@@ -1,0 +1,93 @@
+#screen-menu {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  h1 {
+    color: white;
+    font-family: "connections", sans-serif;
+    font-size: 5em;
+    cursor: grabbing;
+  }
+
+  label {
+    color: white;
+    font-family: "retro", sans-serif;
+    cursor: default;
+  }
+
+  #readme{
+    margin-top: 12px;
+    color: white;
+    font-family: "retro", sans-serif;
+    cursor: default;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  button {
+    width: 256px;
+    height: 48px;
+    color: white;
+    font-family: "retro", sans-serif;
+    border: 4px outset white;
+    background: black;
+    cursor: pointer;
+    margin-top: 12px;
+  }
+
+  button:hover {
+    font-size: 1em;
+    border: 4px inset white;
+  }
+
+  #readme:hover {
+    font-size: 1.1em;
+  }
+}
+
+#screen-enter-game-seed {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "retro", sans-serif;
+
+  h2 {
+    padding-top: 24px;
+    color: white;
+    font-family: "retro", sans-serif;
+    font-size: 1em;
+    cursor: default;
+    text-align: center;
+  }
+
+  input {
+    width: 248px;
+    text-align: center;
+    height: 32px;
+    z-index: 1000;
+    border: 4px solid white;
+    background: black;
+    color: white;
+    font-family: "retro", sans-serif;
+  }
+
+  .ok-button {
+    margin-top: 12px;
+    width: 75px;
+    height: 42px;
+    border: 4px outset white;
+    font-family: "retro", sans-serif;
+    background: black;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  .ok-button:hover {
+    font-size: 1em;
+    border: 4px inset white;
+  }
+}

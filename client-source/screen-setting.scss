@@ -1,0 +1,98 @@
+#screen-setting {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "retro", sans-serif;
+
+  h2 {
+    color: white;
+    font-family: "retro", sans-serif;
+    font-size: 3em;
+    cursor: default;
+  }
+
+  div {
+    padding: 6px 0px 6px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+
+    input {
+      border: 4px solid white;
+      background: black;
+      color: white;
+      font-family: "retro", sans-serif;
+      outline: none;
+    }
+  }
+
+  #controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  input[type='range'] {
+    overflow: hidden;
+    -webkit-appearance: none;
+    border: none;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: white;
+    box-shadow: -80px 0 0 80px #ffffff;
+  }
+
+  input[type="range"]::-moz-range-progress {
+    background-color: #ffffff;
+  }
+  input[type="range"]::-moz-range-track {
+    background-color: #ffffff;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background-color: #ffffff;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: #ffffff;
+  }
+
+  input[type='radio']:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+
+  input[type='radio']:checked:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 15px;
+    background-color: #000000;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+  }
+}

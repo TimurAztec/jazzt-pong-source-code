@@ -1,0 +1,68 @@
+#screen-score {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: "retro", sans-serif;
+  color: white;
+
+  h2{
+    color: white;
+    font-family: "retro", sans-serif;
+    font-size: 3em;
+    cursor: default;
+  }
+
+  #score-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    border: 4px solid white;
+    border-bottom: none;
+    width: 100%;
+
+    span {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 4px solid white;
+      width: 100%;
+
+      span {
+        max-width: 350px;
+        width: 100%;
+        border-right: 4px solid white; border-bottom: none;
+      }
+
+      label {
+        max-width: 150px;
+        width: 100%;
+      }
+    }
+  }
+  #own-score {
+    margin-top: 12px;
+    font-size: 1.2em;
+    border: 4px solid white;
+    font-family: "retro", sans-serif;
+    color: white;
+
+    span {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      span {
+        max-width: 350px;
+        width: 100%;
+        border-right: 4px solid white;;
+      }
+
+      label {
+        max-width: 150px;
+        width: 100%;
+      }
+    }
+  }
+}

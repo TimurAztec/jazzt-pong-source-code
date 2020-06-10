@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<head>
+<!--    <title>Jazzt Pong</title>-->
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.scss">
+    <link rel="stylesheet" href="screen-main-menu.scss">
+    <link rel="stylesheet" href="screen-game.scss">
+    <link rel="stylesheet" href="screen-setting.scss">
+    <link rel="stylesheet" href="screen-score.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Just a regular pong game, but with a little bit of jazz. Online multiplayer pong game for people who are really bored.">
+    <meta name="Keywords" content="
+        Pong, pong, game, Pong game, Jazz, Jazzt-Pong, Jazzt Pong, Tenis game, Tenis, jazzt-pong, jazzt pong, ping-pong,
+        ping pong, classic game, classic, игра в понг, понг, Понг, Jazzt-Pong понг, игра, видео игра, Игра, браузерная игра,
+        Jazz Pong, jazz pong, jazz, Джазт Понг, джазд понг, Джазт,
+    ">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167515391-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-167515391-1');
+    </script>
+    <script data-ad-client="ca-pub-7388019371074452" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<body>
+
+<div id="screen-menu">
+    <h1 class="animate__animated animate__backInUp" id="title">JAZZT PONG</h1>
+    <label class="animate__animated animate__backInDown" id="splash"></label>
+    <button id="play-single" class="animate__animated animate__bounceInLeft">Play singleplayer</button>
+    <button id="play-online" class="animate__animated animate__bounceInRight">Play online</button>
+    <button id="play-online-private" class="animate__animated animate__bounceInLeft">Play with friend</button>
+    <button id="scores-table" class="animate__animated animate__bounceInRight">Scores table</button>
+<!--    <button id="play-online-private" class="animate__animated animate__bounceInLeft">Play private game</button>-->
+<!--    <button id="watch-game" class="animate__animated animate__bounceInRight">Watch private game</button>-->
+<!--    <button id="play-lan"  style="text-decoration: line-through" class="animate__animated animate__bounceInLeft">Play LAN multiplayer</button>-->
+    <button id="settings" class="animate__animated animate__bounceInLeft">Settings</button>
+    <a id="readme" class="animate__animated animate__bounceInRight" href="readme.html" target="_blank">Read Me</a>
+</div>
+
+<div id="screen-setting">
+    <h2 class="animate__animated animate__backInDown">Settings</h2>
+    <div class="animate__animated animate__bounceInDown"><span>Name</span><input type="text" maxlength="18" id="name-input"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Music volume</span><input type="range" min="0" max="10" value="10" id="music-volume"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Sound volume</span><input type="range" min="0" max="10" value="10" id="sound-volume"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Difficulty</span><input type="range" min="0" max="6" value="3" id="difficulty-slide"></div>
+    <div class="animate__animated animate__bounceInDown"><span>Controls: </span></div>
+    <div class="animate__animated animate__bounceInDown" id="controls">
+        <span><input class="0 controls" name="controls" type="radio"><label>Keyboard</label></span>
+        <span><input class="1 controls" name="controls" type="radio"><label>Mouse</label></span>
+        <span><input class="2 controls" name="controls" type="radio"><label>Rotation</label></span>
+    </div>
+    <div id="settings-error"><span></span></div>
+    <button class="to-main-menu">To Main Menu</button>
+</div>
+
+<div id="screen-game">
+    <span id="phone-vertical-warning">Please turn your phone horizontally</span>
+    <canvas id="canvas" style="background-color:black" class="animate__animated animate__bounceInDown">
+        Your browser doesn't support Canvas, try another or update
+    </canvas>
+    <div id="chat" class="animate__animated animate__bounceInUp">
+
+    </div>
+    <div id="chatInputBox" class="animate__animated animate__bounceInUp">
+        <input id="chatInput" type="text">
+        <button id="chatSendButton">Send</button>
+    </div>
+    <button class="to-main-menu">To Main Menu</button>
+    <label id="ping"></label>
+    <div class="animate__animated animate__bounceInUp" id="game-buttons">
+        <button id="game-fullscreen-button">Fullscreen mode</button>
+        <button id="pause-button">Pause</button>
+    </div>
+</div>
+
+<div id="screen-score">
+    <h2 class="animate__animated animate__backInDown">Best players</h2>
+    <div id="score-table" class="animate__animated animate__bounceInDown">
+
+    </div>
+    <div id="own-score" class="animate__animated animate__bounceInDown">
+
+    </div>
+    <button class="to-main-menu">To Main Menu</button>
+</div>
+
+<div id="screen-enter-game-seed">
+    <h2 class="animate__animated animate__backInDown">Enter unique identifier for your game room.<br>Other person you are going to play with should enter the same.</h2>
+    <input class="animate__animated animate__backInUp" type="text" maxlength="18" id="seed-input">
+    <button class="animate__animated animate__backInUp ok-button">OK</button>
+    <button class="to-main-menu">To Main Menu</button>
+</div>
+
+<!-- Tech part -->
+<div id="devs">
+    <span>Game by TimurAztec | <a href="https://github.com/TimurAztec">GitHub</a></span>
+    <span>Game testing Dan Seroff and <a href="https://www.instagram.com/overwolf94/">Dima Overwolf</a></span>
+</div>
+
+<!-- Tech sounds -->
+<audio src="sound/sounds/beep1.ogg" id="audio-beep1" class="sound"></audio>
+<audio src="sound/sounds/beep2.ogg" id="audio-beep2" class="sound"></audio>
+<audio src="sound/sounds/startbeep.ogg" id="audio-beep3" class="sound"></audio>
+<audio src="sound/sounds/hit.ogg" id="audio-hit1" class="sound"></audio>
+<audio src="sound/sounds/hit2.ogg" id="audio-hit2" class="sound"></audio>
+<!-- Menu music -->
+<audio src="sound/music/Misty_Knight.mp3" class="music music-menu"></audio>
+<audio src="sound/music/Dreamer_in_glass.mp3" class="music music-menu"></audio>
+<audio src="sound/music/Mystery_rose.mp3" class="music music-menu"></audio>
+<audio src="sound/music/Magnum_Dance.mp3" class="music music-menu"></audio>
+<audio src="sound/music/The_New_York_Ripper_InMenu.mp3" class="music music-menu"></audio>
+<!-- Game music -->
+<audio src="sound/music/Piano_black.mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(1).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(2).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(3).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(4).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(6).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(7).mp3" class="music music-game"></audio>
+<audio src="sound/music/videoplayback(8).mp3" class="music music-game"></audio>
+<audio src="sound/music/Hot_Corner.mp3" class="music music-game"></audio>
+<audio src="sound/music/Online_Shopping.mp3" class="music music-game"></audio>
+<audio src="sound/music/Tune_For_Tony.mp3" class="music music-game"></audio>
+<audio src="sound/music/DOOM.mp3" class="music music-game"></audio>
+<audio src="sound/music/Death_by_Glamour.mp3" class="music music-game"></audio>
+<audio src="sound/music/Ghost_Battle.mp3" class="music music-game"></audio>
+<audio src="sound/music/GIORNOS_THEME.mp3" class="music music-game"></audio>
+<audio src="sound/music/New_York_Ripper_InGame.mp3" class="music music-game"></audio>
+<!-- Scripts-->
+<script src="mobile-check.js"></script>
+<script src="pong-game-single.js"></script>
+<script src="pong-game.js"></script>
+<script src="screens-changer.js"></script>
+<script src="settings.js"></script>
+<script src="start.js"></script>
+</body>
+</html>
