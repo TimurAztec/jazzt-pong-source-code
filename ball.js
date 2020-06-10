@@ -94,6 +94,9 @@ module.exports = class Ball extends SceneDynamicObject {
             this.x = 5;
             this.sx = 0;
             this.sy = 0;
+            setTimeout(() => {
+                    this.release('left', score);
+            }, 10000);
         }
         if (this.x + this.width > canvas.width) {
             score.score1 += 1;
@@ -102,6 +105,9 @@ module.exports = class Ball extends SceneDynamicObject {
             this.x = canvas.width-(this.width+5);
             this.sx = 0;
             this.sy = 0;
+            setTimeout(() => {
+                    this.release('right', score);
+            }, 10000);
         }
     }
 
