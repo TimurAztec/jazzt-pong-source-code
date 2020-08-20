@@ -1,11 +1,9 @@
 const MongoClient = require("mongodb").MongoClient;
 const {ObjectId} = require("mongodb");
-const mongoUrl = 'mongodb://heroku_wqpvrkdq:2158u4v61nvofoho05bapiv1k3@ds029798.mlab.com:29798/heroku_wqpvrkdq';
-const dbName = 'heroku_wqpvrkdq';
+const mongoUrl = 'yourURL';
+const dbName = 'yourName';
 const SceneDynamicObject = require('./SceneDynamicObject');
 const Ball = require('./ball');
-// const dbName = 'pong-users';
-// const mongoUrl = 'mongodb://localhost:27017/';
 
 module.exports = class Room {
 
