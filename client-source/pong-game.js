@@ -1,6 +1,6 @@
 import Ball from "./ball";
 import PGenerator from "./particles-generator";
-import {goToMainMenu} from "./screens-changer";
+import {changeGameScreenMode, goToMainMenu} from "./screens-changer";
 import {playGameMusic, stopMusic} from './music-player';
 import SceneDynamicObject from "./SceneDynamicObject";
 import RenderObjectRect from "./RenderObjectRect";
@@ -67,10 +67,13 @@ function input() {
                 }
             }
             if (mouseCords.release) {
+                let friction = {x:0,y:0};
                 if (left) {
-                    EventEmitter.emit('release', {side: 'left'});
+                    friction.y = gameObjects.active[0].y - gameObjects.active[0].lasty;
+                    EventEmitter.emit('release', {side: 'left', friction: friction});
                 } else if (right) {
-                    EventEmitter.emit('release', {side: 'right'});
+                    friction.y = gameObjects.active[1].y - gameObjects.active[1].lasty;
+                    EventEmitter.emit('release', {side: 'right', friction: friction});
                 }
             }
             break;
@@ -83,20 +86,26 @@ function input() {
                 }
             }
             if (mouseCords.release) {
+                let friction = {x:0,y:0};
                 if (left) {
-                    EventEmitter.emit('release', {side: 'left'});
+                    friction.y = gameObjects.active[0].y - gameObjects.active[0].lasty;
+                    EventEmitter.emit('release', {side: 'left', friction: friction});
                 } else if (right) {
-                    EventEmitter.emit('release', {side: 'right'});
+                    friction.y = gameObjects.active[1].y - gameObjects.active[1].lasty;
+                    EventEmitter.emit('release', {side: 'right', friction: friction});
                 }
             }
             break;
         }
     }
     if (13 in keys) {
+        let friction = {x:0,y:0};
         if (left) {
-            EventEmitter.emit('release', {side: 'left'});
+            friction.y = gameObjects.active[0].y - gameObjects.active[0].lasty;
+            EventEmitter.emit('release', {side: 'left', friction: friction});
         } else if (right) {
-            EventEmitter.emit('release', {side: 'right'});
+            friction.y = gameObjects.active[1].y - gameObjects.active[1].lasty;
+            EventEmitter.emit('release', {side: 'right', friction: friction});
         }
     }
 }
@@ -133,9 +142,13 @@ function displayNumbers(info) {
 function process() {
     collisionDetection();
     gameObjects.active[2].collideBounds(canvas);
-    gameObjects.active[2].process();
+    processActiveObjects();
     sendDataToServer();
     processServerCords();
+}
+
+function processActiveObjects() {
+    gameObjects.active.forEach(item => item.process() );
 }
 
 function processServerCords() {
@@ -340,19 +353,19 @@ function definePlayerSide() {
     switch (localStorage.getItem('controls')) {
         case '0': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use 'up' and 'down' on keyboard to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use 'up' and 'down' on keyboard to control your paddle. Use 'Enter' to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
         case '1': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use your mouse to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use your mouse to control your paddle. Use 'Enter' or move your mouse horizontally to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
         case '2': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use your device rotation to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use your device rotation to control your paddle. Use horizontal swipe to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
@@ -520,21 +533,21 @@ function connect(address, seed) {
 
 function init() {
     if (window.orientation == 90) {
-        canvas.requestFullscreen();
+        changeGameScreenMode();
     }
-    window.addEventListener('keydown', function (e) {
-        keys[e.keyCode] = true;
-        // e.preventDefault();
-    });
-    window.addEventListener('deviceorientation', ev => {
+    // window.addEventListener('keydown', function (e) {
+    //     keys[e.keyCode] = true;
+    //     // e.preventDefault();
+    // };
+    window.ondeviceorientation = ev => {
         if (ev.gamma) {
             accelerometerGamma = ev.gamma;
         }
-    }, true);
-    window.addEventListener('keyup', function (e) {
+    };
+    window.onkeyup = (e) => {
         delete keys[e.keyCode];
-    });
-    window.addEventListener('keydown', (e) => {
+    };
+    window.onkeydown = (e) => {
         if (!stop) {
             switch (e.keyCode) {
                 case 80: {
@@ -548,7 +561,7 @@ function init() {
                 }
             }
         }
-    })
+    };
     document.getElementById('pause-button').onclick = () => { if (!stop) {EventEmitter.emit('pause')}}
     document.getElementById('chatSendButton').onclick = sendMessage;
     canvas.onmousemove = (e) => {
@@ -567,7 +580,7 @@ function init() {
     }
     window.onorientationchange = () => {
         if (window.orientation == 90) {
-            canvas.requestFullscreen();
+            changeGameScreenMode();
         }
     }
 }

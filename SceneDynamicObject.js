@@ -6,6 +6,13 @@ module.exports = class SceneDynamicObject extends SceneObject{
         super(options)
         this.sx = options.sx || 0;
         this.sy = options.sy || 0;
+        this.lastx = 0;
+        this.lasty = 0;
+    }
+
+    process() {
+        this.lastx = this.x;
+        this.lasty = this.y;
     }
 
     collideBounds(canvas) {

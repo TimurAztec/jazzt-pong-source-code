@@ -39,7 +39,7 @@ module.exports = class Ball extends SceneDynamicObject {
         this.rotation = rotation;
     }
 
-    collide(angle) {
+    collide(angle, friction) {
         super.collide(angle);
         switch (angle) {
             case 1: {
@@ -70,9 +70,9 @@ module.exports = class Ball extends SceneDynamicObject {
             this.sx--
         }
         if (this.sy > 0) {
-            this.sy = (Math.random() * 3) + 0.5;
+            this.sy = ((Math.random() * 2) + 0.5) + friction.y/3;
         } else {
-            this.sy = ((Math.random() * 3) + 0.5) * -1;
+            this.sy = (((Math.random() * 2) + 0.5) * -1) + friction.y/3;
         }
         this.changeRotation((this.sx + this.sy) * 0.1);
     }
@@ -95,7 +95,7 @@ module.exports = class Ball extends SceneDynamicObject {
             this.sx = 0;
             this.sy = 0;
             setTimeout(() => {
-                    this.release('left', score);
+                    this.release('left', score, {x: 0,y: 0});
             }, 10000);
         }
         if (this.x + this.width > canvas.width) {
@@ -106,7 +106,7 @@ module.exports = class Ball extends SceneDynamicObject {
             this.sx = 0;
             this.sy = 0;
             setTimeout(() => {
-                    this.release('right', score);
+                    this.release('right', score, {x: 0,y: 0});
             }, 10000);
         }
     }
@@ -127,17 +127,18 @@ module.exports = class Ball extends SceneDynamicObject {
         }
     }
 
-    release(playerSide, score) {
+    release(playerSide, score, friction) {
         if (this.holded.state) {
+            // let friction = {x:0,y:0}; friction.y = this.holded.paddle.y - this.holded.paddle.lasty;
             if (this.holded.paddle.nameId == 'paddle1' && playerSide == 'left') {
                 this.holded = {state: false, paddle: {}}
                 this.sx += score.score2 || 1;
-                this.sy = ((Math.random() * 6) + -3);
+                this.sy = ((Math.random() * 2) + -1) + friction.y/4;
                 this.changeRotation(this.sx * 0.1);
             } else if (this.holded.paddle.nameId == 'paddle2' && playerSide == 'right') {
                 this.holded = {state: false, paddle: {}}
                 this.sx -= score.score1 || 1;
-                this.sy = ((Math.random() * 6) + -3);
+                this.sy = ((Math.random() * 2) + -1) + friction.y/4;
                 this.changeRotation(this.sx * 0.1);
             }
         }

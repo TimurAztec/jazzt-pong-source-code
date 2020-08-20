@@ -1,6 +1,6 @@
 import Ball from "./ball";
 import PGenerator from "./particles-generator";
-import {goToMainMenu} from "./screens-changer";
+import {changeGameScreenMode, goToMainMenu} from "./screens-changer";
 import {playGameMusic, stopMusic} from './music-player';
 import SceneDynamicObject from "./SceneDynamicObject";
 import RenderObjectRect from "./RenderObjectRect";
@@ -61,7 +61,8 @@ function input() {
                     }
                 }
                 if (mouseCords.release) {
-                    if (left) { gameObjects.active[2].release('left', score); } else if (right) { gameObjects.active[2].release('right', score); }
+                    if (left) { gameObjects.active[2].release('left', score); }
+                    else if (right) { gameObjects.active[2].release('right', score); }
                     mouseCords.release = false;
                 }
             }
@@ -75,14 +76,16 @@ function input() {
                 }
             }
             if (mouseCords.release) {
-                if (left) { gameObjects.active[2].release('left', score); } else if (right) { gameObjects.active[2].release('right', score); }
+                if (left) { gameObjects.active[2].release('left', score);}
+                else if (right) { gameObjects.active[2].release('right', score); }
                 mouseCords.release = false;
             }
             break;
         }
     }
     if (13 in keys) {
-        if (left) { gameObjects.active[2].release('left', score); } else if (right) { gameObjects.active[2].release('right', score); }
+        if (left) { gameObjects.active[2].release('left', score); }
+        else if (right) { gameObjects.active[2].release('right', score); }
     }
 }
 
@@ -164,8 +167,12 @@ function displayNumbers(info) {
 function process() {
     collisionDetection();
     gameObjects.active[2].collideBounds(canvas, score, new Array([gameObjects.active[0], gameObjects.active[1]]));
-    gameObjects.active[2].process();
+    processActiveObjects();
     scoreCheck();
+}
+
+function processActiveObjects() {
+    gameObjects.active.forEach(item => item.process() );
 }
 
 function collisionDetection() {
@@ -185,16 +192,17 @@ function checkCollision(obj1, obj2) {
         obj1.y+obj1.sy             > obj2.y+obj2.height ||
         obj1.y+obj1.height+obj1.sy < obj2.y
     )){
+        let friction = {x:0,y:0}; friction.y = obj2.y - obj2.lasty;
         if (!(obj1.y+obj1.sy > obj2.y+obj2.height) && (obj1.x<obj2.x+obj2.width) && (obj1.x+obj1.width>obj2.x)) {
-            obj1.collide(3);
+            obj1.collide(3, friction);
         } else if (!(obj1.y+obj1.height+obj1.sy < obj2.y) && (obj1.x<obj2.x+obj2.width) && (obj1.x+obj1.width>obj2.x)) {
-            obj1.collide(4);
+            obj1.collide(4, friction);
         } else if (!(obj1.x+obj1.width > obj2.x)) {
-            obj1.collide(1);
+            obj1.collide(1, friction);
         } else if (!(obj1.x < obj2.x+obj2.width)) {
-            obj1.collide(2);;
+            obj1.collide(2, friction);
         } else {
-            obj1.collide(0);
+            obj1.collide(0, friction);
         }
     }
 }
@@ -299,6 +307,7 @@ function gameStartSingle() {
 }
 
 function gameEndSingle() {
+    pause = false;
     stop = true;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     stopMusic();
@@ -397,19 +406,19 @@ function definePlayerSide() {
     switch (localStorage.getItem('controls')) {
         case '0': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use 'up' and 'down' on keyboard to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use 'up' and 'down' on keyboard to control your paddle. Use 'Enter' to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
         case '1': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use your mouse to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use your mouse to control your paddle. Use 'Enter' or move your mouse horizontally to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
         case '2': {
             let message = document.createElement('span');
-            message.innerText = `You are from the ${sideStr} side, use your device rotation to control your paddle.`;
+            message.innerText = `You are from the ${sideStr} side, use your device rotation to control your paddle. Use horizontal swipe to release the ball.`;
             document.getElementById('chat').appendChild(message); message.scrollIntoView();
             break;
         }
@@ -418,21 +427,21 @@ function definePlayerSide() {
 
 function init() {
     if (window.orientation == 90) {
-        canvas.requestFullscreen();
+        changeGameScreenMode();
     }
-    window.addEventListener('keydown', function (e) {
-        keys[e.keyCode] = true;
-        // e.preventDefault();
-    });
-    window.addEventListener('deviceorientation', ev => {
+    // window.onkeydown = (e) => {
+    //     keys[e.keyCode] = true;
+    //     // e.preventDefault();
+    // };
+    window.ondeviceorientation = ev => {
         if (ev.gamma) {
             accelerometerGamma = ev.gamma;
         }
-    }, true);
-    window.addEventListener('keyup', function (e) {
+    };
+    window.onkeyup = (e) => {
         delete keys[e.keyCode];
-    });
-    window.addEventListener('keydown', (e) => {
+    };
+    window.onkeydown = (e) => {
         if (!stop) {
             switch (e.keyCode) {
                 case 80: {
@@ -447,7 +456,7 @@ function init() {
                 }
             }
         }
-    })
+    };
     document.getElementById('pause-button').onclick = () => {
         if (!stop) { pause = !pause; if (!pause) { loop(); document.getElementById('pause-button').innerText = 'Pause';}}
     }
@@ -468,7 +477,7 @@ function init() {
     }
     window.onorientationchange = () => {
         if (window.orientation == 90) {
-            canvas.requestFullscreen();
+            changeGameScreenMode();
         }
     }
 }

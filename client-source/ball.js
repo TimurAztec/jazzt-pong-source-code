@@ -51,7 +51,7 @@ export default class Ball extends SceneDynamicObject {
         this.rotation = rotation;
     }
 
-    collide(angle) {
+    collide(angle, friction) {
         super.collide(angle);
         playHit();
         switch (angle) {
@@ -88,9 +88,9 @@ export default class Ball extends SceneDynamicObject {
             this.sx--
         }
         if (this.sy > 0) {
-            this.sy = (Math.random() * 3) + 0.5;
+            this.sy = ((Math.random() * 2) + 0.5) + friction.y/3;
         } else {
-            this.sy = ((Math.random() * 3) + 0.5) * -1;
+            this.sy = (((Math.random() * 2) + 0.5) * -1) + friction.y/3;
         }
         this.changeRotation((this.sx + this.sy) * 0.1);
     }
@@ -100,6 +100,10 @@ export default class Ball extends SceneDynamicObject {
             this.sx = 15
         } else if (this.sx < -15) {
             this.sx = -15
+        } else if (this.sy > 10) {
+            this.sy = 10
+        } else if (this.sy < -10) {
+            this.sy = -10
         }
     }
 
@@ -132,6 +136,7 @@ export default class Ball extends SceneDynamicObject {
     }
 
     process() {
+        super.process();
         this.x += this.sx;
         this.y += this.sy;
         this.speedLimit();
@@ -149,15 +154,16 @@ export default class Ball extends SceneDynamicObject {
 
     release(playerSide, score) {
         if (this.holded.state) {
+            let friction = {x:0,y:0}; friction.y = this.holded.paddle.y - this.holded.paddle.lasty;
             if (this.holded.paddle.name == 'paddle1' && playerSide == 'left') {
                 this.holded = {state: false, paddle: {}}
                 this.sx += score.score2 || 1;
-                this.sy = ((Math.random() * 6) + -3);
+                this.sy = ((Math.random() * 2) + -1) + friction.y/4;
                 this.changeRotation(this.sx * 0.1);
             } else if (this.holded.paddle.name == 'paddle2' && playerSide == 'right') {
                 this.holded = {state: false, paddle: {}}
                 this.sx -= score.score1 || 1;
-                this.sy = ((Math.random() * 6) + -3);
+                this.sy = ((Math.random() * 2) + -1) + friction.y/4;
                 this.changeRotation(this.sx * 0.1);
             }
         }

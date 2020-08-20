@@ -110,6 +110,15 @@ module.exports = class Room {
             sx: (Math.random() * 2 + -1) * 2,
             rotation: 0.05,
         }));
+        if (this.gameObjects.active[2].sx > -0.5 && this.gameObjects.active[2].sx < 0) {
+            this.gameObjects.active[2].sx = -0.5;
+        } else if (this.gameObjects.active[2].sx < 0.5 && this.gameObjects.active[2].sx > 0) {
+            this.gameObjects.active[2].sx = 0.5;
+        } else if (this.gameObjects.active[2].sy > -0.5 && this.gameObjects.active[2].sy < 0) {
+            this.gameObjects.active[2].sy = -0.5;
+        } else if (this.gameObjects.active[2].sy < 0.5 && this.gameObjects.active[2].sy > 0) {
+            this.gameObjects.active[2].sy = 0.5;
+        }
     }
 
     collisionDetection() {
@@ -130,16 +139,17 @@ module.exports = class Room {
             obj1.y + obj1.height + obj1.sy < obj2.y
         )) {
             if (obj1.collide) {
+                let friction = {x:0,y:0}; friction.y = obj2.y - obj2.lasty;
                 if (!(obj1.y + obj1.sy > obj2.y + obj2.height) && (obj1.x < obj2.x + obj2.width) && (obj1.x + obj1.width > obj2.x)) {
-                    obj1.collide(3);
+                    obj1.collide(3, friction);
                 } else if (!(obj1.y + obj1.height + obj1.sy < obj2.y) && (obj1.x < obj2.x + obj2.width) && (obj1.x + obj1.width > obj2.x)) {
-                    obj1.collide(4);
+                    obj1.collide(4, friction);
                 } else if (!(obj1.x + obj1.width > obj2.x)) {
-                    obj1.collide(1);
+                    obj1.collide(1, friction);
                 } else if (!(obj1.x < obj2.x + obj2.width)) {
-                    obj1.collide(2);
+                    obj1.collide(2, friction);
                 } else {
-                    obj1.collide(0);
+                    obj1.collide(0, friction);
                 }
             }
         }
@@ -158,26 +168,26 @@ module.exports = class Room {
             if (this.score.score1 >= 10) {
                 let dif = this.score.score1 - this.score.score2;
                 if (this.gameObjects.active[0].name) {
-                    this.io.in(this.roomId).emit('end_game', `${this.gameObjects.active[0].name} won the game!`);
+                    this.io.in(this.roomId).emit('end_game', `${this.gameObjects.active[0].name} has won the game!`);
                 } else {
-                    this.io.in(this.roomId).emit('end_game', 'Player 1 won the game!');
+                    this.io.in(this.roomId).emit('end_game', 'Player 1 has won the game!');
                 }
                 if (this.gameObjects.active[0].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[0].id, dif);
                 }
-                if (this.gameObjects.active[0].id && !this.roomId.match(/^pers__/g)) {
-                    this.addPlayerScore(this.gameObjects.active[0].id, -dif);
+                if (this.gameObjects.active[1].id && !this.roomId.match(/^pers__/g)) {
+                    this.addPlayerScore(this.gameObjects.active[1].id, -dif);
                 }
                 this.end = true;
             } else if (this.score.score2 >= 10) {
                 let dif = this.score.score2 - this.score.score1;
                 if (this.gameObjects.active[1].name) {
-                    this.io.in(this.roomId).emit('end_game', `${this.gameObjects.active[1].name} won the game!`);
+                    this.io.in(this.roomId).emit('end_game', `${this.gameObjects.active[1].name} has won the game!`);
                 } else {
-                    this.io.in(this.roomId).emit('end_game', 'Player 2 won the game!');
+                    this.io.in(this.roomId).emit('end_game', 'Player 2 has won the game!');
                 }
-                if (this.gameObjects.active[1].id && !this.roomId.match(/^pers__/g)) {
-                    this.addPlayerScore(this.gameObjects.active[1].id, -dif);
+                if (this.gameObjects.active[0].id && !this.roomId.match(/^pers__/g)) {
+                    this.addPlayerScore(this.gameObjects.active[0].id, -dif);
                 }
                 if (this.gameObjects.active[1].id && !this.roomId.match(/^pers__/g)) {
                     this.addPlayerScore(this.gameObjects.active[1].id, dif);
@@ -243,7 +253,7 @@ module.exports = class Room {
 
             socket.on('release', (data) => {
                 if (this.gameObjects.active[2]) {
-                    this.gameObjects.active[2].release(data.side, this.score);
+                    this.gameObjects.active[2].release(data.side, this.score, data.friction);
                 }
             });
 

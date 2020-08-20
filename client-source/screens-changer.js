@@ -99,7 +99,7 @@ document.getElementsByClassName('ok-button')[0].onclick = () => {
         document.getElementById('screen-enter-game-seed').style.display = 'none';
         document.getElementById('screen-game').style.display = 'flex';
         document.getElementsByClassName('to-main-menu')[1].onclick = gameEnd;
-        gameStart('localhost:80', document.getElementById('seed-input').value);
+        gameStart('https://jazzt-pong.herokuapp.com/', document.getElementById('seed-input').value);
         document.getElementById('seed-input').value = '';
     }
 }
@@ -125,4 +125,4 @@ document.getElementById('splash').onmouseenter = () => {
     document.getElementById('splash').className = 'animate__animated animate__tada';
 }
 
-export {goToMainMenu}
+export {goToMainMenu, changeGameScreenMode}
